@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    background-color: #56baed;
+}
+
+.select-box,
+.play-board,
+.result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+// .select-box.hidden {
+//     opacity: 0;
+//     visibility: hidden;
+//     pointer-events: none;
+//     transform: translate(-50%, -50%) scale(0.9);
+// }
+
+.select-box {
+    background-color: #fff;
+    padding: 15px 10px 25px;
+    border-radius: 5px;
+    max-width: 350px;
+    width: 100%;
+    transition: all 0.3 ease;
+
+    // opacity: 0;
+    // visibility: hidden;
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.9);
+
+    }
+
+    header {
+        font-size: 25px;
+        font-weight: 600;
+        background-image: linear-gradient(to right, rgb(97, 169, 250), rgb(150, 253, 172));
+        // display:inline-block;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(119, 247, 151);
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        width: 100%;
+
+        // justify-content: space-between;
+        & button {
+            width: 100%;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 0;
+            border: none;
+            outline: none;
+            background-color: #56baed;
+            border-radius: 5px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        & button:hover {
+            transform: scale(0.9);
+        }
+
+        .playerX {
+            margin-right: 5px;
+        }
+    }
+}
+
+.play-board {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .detail {
+        background-color: #fff;
+        padding: 7px;
+        border-radius: 5px;
+
+        .slider {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            background-color: #56baed;
+            border-radius: 5px;
+            z-index: 2;
+            transition: all 0.5s ease;
+        }
+    }
+}
+
+section {
+    display: flex;
+
+    & span {
+        display: block;
+        margin: 2px;
+        height: 80px;
+        width: 80px;
+        background-color: #fff;
+        border-radius: 5px;
+        font-size: 40px;
+        text-align: center;
+        line-height: 80px;
+        color: #56baed;
+    }
+}
+
+.play-area {
+    margin-top: 20px;
+}
+
+
+
+.play-board .detail .players {
+    display: flex;
+    width: 100%;
+    // border-radius: 5px;
+    position: relative;
+    justify-content: space-between;
+
+}
+
+.players.active span:first-child {
+    color: #56baed;
+}
+
+.players.active span:nth-child(2) {
+    color: #fff;
+}
+
+.players.active .slider {
+    // color: #fff;
+    left: 50%;
+}
+
+.play-board .detail span {
+    // background-color: red;
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px 0;
+    font-size: 19px;
+    font-weight: 500;
+    cursor: default;
+    text-align: center;
+    color: #56baed;
+    position: relative;
+    z-index: 5;
+    transition: all 0.5s ease;
+}
+
+.detail span:first-child {
+    color: #fff;
+}
+
+// .detail span.active {
+//     color: #fff;
+
+// }
+.result-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 350px;
+    max-width: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .won-text {
+        font-size: 25px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+
+        p {
+            font-weight: 600;
+            margin: 0 5px;
+        }
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 20px;
+            border: none;
+            outline: none;
+            background-color: #56baed;
+            border-radius: 5px;
+            color: #fff;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: scale(0.9);
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .select-box {
+        .title {
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            // justify-content:space-between;
+            flex-direction: column;
+
+            .playerX {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
